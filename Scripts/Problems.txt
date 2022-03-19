@@ -1,0 +1,9 @@
+when player falls off the edge, it launches them forward
+
+playerMovement: accelarate until reached set velocity, then maybe accelerate at a very slow rate (maybe even cap)
+
+sometimes after a while all obstacles are gone (maybe not anymore with fixed speed)
+
+Add score counter; write it out
+Add slow acceleration that caps
+After end, add force until y<(1 or 0)
