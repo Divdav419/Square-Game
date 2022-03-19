@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Square Game</title>
+    <style>
+        body {
+            font-family: Helvetica;
+        }
+        h1 {
+            color: #424242
+        }
+        p {
+            color: #757575
+        }
+    </style>
+</head>
+<body>
+<h1>Square Game: My Sophomore Project</h1>
+<p>
+Hi! Welcome to my site, where you can try out the game I made for my Sophomore Project and read about why I decided to make this, how I built it and what I will do to improve upon the current state of the game. 
+<br><br>
+You can play the game in a WebGL format (embedded from play.unity.com)<br>
+This is the game:<br>You might have to zoom in to see the whole game (mainly the score counter and try again button).</p>
+
+<iframe style="display:block;" id='webgl_iframe' frameborder="0" allow="autoplay; fullscreen; vr" allowfullscreen="" allowvr=""
+    mozallowfullscreen="true" src="https://play.unity3dusercontent.com/webgl/e033aeb6-e456-443c-b137-57745572f26c"  width="810"
+    height="640" onmousewheel="" webkitallowfullscreen="true"></iframe><br>
+<p>
+You can view the game at this link as well:<br>
+<a href="https://play.unity3dusercontent.com/webgl/e033aeb6-e456-443c-b137-57745572f26c">https://play.unity3dusercontent.com/webgl/e033aeb6-e456-443c-b137-57745572f26c</a>
+</p>
+<br><br>
+<div>
+<p>I enjoy playing video games and have played a plethora of different ones, but almost without fail I found that certain elements of the games were not to my liking: they were not working as intended, they made the game less fun or they steered the gameplay away from what I actually wanted to do. More importantly, I had a lot of ideas for games and game mechanics, but I never had the relevant knowledge and skills to put these ideas into practice. I realized that I had enough ideas to make it worthwhile to start putting them into practice, however, to do this I would have to learn various new techniques, in particular using a game engine. I decided to learn Unity, which is one of the most popular game engines with plenty of online tutorials available.  
+</p>
+<p>To learn Unity, I turned to a Youtube tutorial series and online platforms. With additional inspiration from the tutorial, I decided to make a game where the player can move around on a narrow ground-plane dodging obstacles and getting points for doing so successfully. The obstacles are generated at random throughout the course of the game.  
+</p>
+<p>I benefited most from this project from a game developer/YouTuber whose channel name is Brackey. I was following his tutorial until I decided to steer away and create a game based on my ideas. Since I did not have nearly enough knowledge to create the game without any help, I turned to Brackey’s channel again to overcome the different challenges and obstacles I encountered   (e.g., how to create a clickable button). Frequently the channel alone was not sufficient, and most of the time I also had to use different online forums, such as Stack Overflow. 
+</p>
+<p>A lot of the challenges I faced could be solved using help from these sources, but the truly tough challenges required more than just a quick google: they were figuring out how I was going to make my idea a reality and creating logic for different elements of the game. 
+</p>
+<p>The first real challenge stemmed from the basic game design, having to decide how the player was going to move in relation to the other objects. At first, I decided to make the obstacles move towards the player while having the ground plane (where the action is taking place) static  and have the player move on one axis only (controlled by the player). This seemed to be a promising idea, but once I tested it, I realized a big problem with it: when the obstacles collided with the player, because of the underlying physics, the player would bounce backwards instead of the obstacle, breaking the illusion of the player moving forward. To address this, my first idea was to flip the forces on the forward axis when the collision takes place, but despite all my efforts I could not figure out how to do that, so I decided to remake the movement and make the player move forward and the obstacles stay static until collision. At first this also was not ideal, because eventually the path would end and the player would run off the ground platform. I decided to fix this by making the ground follow the player’s z position (along the path), but because of the movement of the ground I had to turn off all interactions between the ground and the obstacles. 
+</p>
+<p>The second roadblock I had to overcome was the generation of obstacles. I knew before I started that this would be a challenge, so I decided to divide it into three steps: coming up with the logic, calculating everything necessary on paper and then turning it into code and fitting it into unity. The first two parts were simple; I decided the best way to do this would be to break it up into rows and then combine the rows together. To generate a row, I first generate the hole through which the player has to navigate and then build the obstacles around the hole. The rows are generated in two ways: the basic map is generated (the game creates a lot of rows behind each other) or when the player passes an obstacle, that row gets deleted (in order to not use RAM unnecessarily) and a new one gets generated at the back. The main problem I had with this, other than a few bugs, was that this code was run on the obstacle instead of a separate game object and I did not realize that by cloning an object (in this case the obstacles) I clone all its components as well including the code, which caused all the clones to start running the code as well, which led to an exponential amount of obstacles being generated, crashing the game. 
+</p>
+<p>Right now, the game generates obstacles according to a constant: the length of the ground. I think adding an option for the player to set this constant would be a powerful addition to this game as it could make it run smoother on lower performance devices and make the “render range” higher on stronger ones. To realize this, I would have to learn how to read user inputs, which would also be a really useful skill to possess. Being able to apply user input, I would also include logic so that the difficulty of the game to be variable. Another change I would make is fixing the appearance of the game in a WebGL format (the format it is currently in), by making the text responsive, since right now they disappear when the resolution is too small. I have been working on a fix for this for quite some time, but there still remains room for improvement.  
+</p>
+<p>The main reason for my inability to address the above shortcomings was my poor time management. Originally, I wanted to make a different project altogether, a digit recognizing program, but I severely underestimated how much time it would require. Instead of planning the project in detail and budgeting my time with plenty of reserves, quite optimistically I only started work on the project close to the completion deadline. When I realized that my original project was harder than I initially thought I did not have enough time to complete that project and decided to change it to the current one. Having learned the importance of time management and not postponing tasks, I think will help me grow as a person and not only as a game developer. Hopefully, in later projects – and other areas of life – I will be able to better estimate its time requirement and be prepared for the fact that I might be wrong, overall optimistic in my time projection. I will also try to start my projects/tasks earlier rather than leave them to the last moment. 
+</p>
+<p>Besides these important lessons I have also gained a lot of skills that I can utilize in the future. Having done this project, I have gained experience in project management and coding and I will be better equipped to participate in video game development or in general a more complex design and programming function.  Also, Unity uses C#, a programming language that I was not familiar with before the start of this project. 
+</p>
+<p>I believe that although it was a bumpy road and the end result is still not perfect, I have learned a lot during this process and have created something I can be proud of. Further, it gave me the satisfaction of seeing a project from beginning to end and the joy of working on a video game, something I have always wanted.  
+</p>
+</div>
+</body>
+</html>
